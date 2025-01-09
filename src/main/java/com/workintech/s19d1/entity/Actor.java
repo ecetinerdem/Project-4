@@ -29,4 +29,6 @@ public class Actor {
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
+
+    @ManyToMany(cascade = )
 }
