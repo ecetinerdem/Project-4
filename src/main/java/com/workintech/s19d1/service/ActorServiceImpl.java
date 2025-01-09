@@ -1,6 +1,7 @@
 package com.workintech.s19d1.service;
 
 import com.workintech.s19d1.entity.Actor;
+import com.workintech.s19d1.exceptions.ActorException;
 import com.workintech.s19d1.repository.ActorRepository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
