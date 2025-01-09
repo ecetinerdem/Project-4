@@ -6,6 +6,8 @@ import lombok.Data;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @Data
@@ -30,5 +32,14 @@ public class Actor {
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
-    @ManyToMany(cascade = )
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},fetch = FetchType.EAGER)
+    @JoinTable(name = "movie_actor", schema = "cinema", joinColumns = @JoinColumn(name="actor_id"), inverseJoinColumns = @JoinColumn(name = "movie_id"))
+    private List<Movie> movies;
+
+    public void addMovie(Movie movie) {
+        if(movies == null) {
+            movies = new ArrayList<>();
+        }
+        movies.add(movie);
+    }
 }
