@@ -4,6 +4,7 @@ import com.workintech.s19d1.entity.Movie;
 
 import com.workintech.s19d1.repository.MovieRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,26 +17,27 @@ public class MovieServiceImpl implements MovieService{
 
     @Override
     public List<Movie> findAll() {
-        return ;
+        return movieRepository.findAll();
     }
 
     @Override
     public Movie findById(Long id) {
-        return null;
+        return movieRepository.findById(id).orElseThrow(new MovieException("Movie does not exist with id: " + id, HttpStatus.NOT_FOUND));
     }
 
     @Override
     public Movie save(Movie movie) {
-        return null;
+        return movieRepository.save(movie);
     }
 
     @Override
     public Movie update(Long id, Movie movie) {
-        return null;
+        Movie movie1 = findById(id);
+        return movieRepository.save(movie);
     }
 
     @Override
     public void delete(Movie movie) {
-
+        movieRepository.delete(movie);
     }
 }
