@@ -20,6 +20,11 @@ public class GlobalErrorHandler {
         log.error("Movie Error has occurred ", movieException);
         return new ResponseEntity<>(new MovieErrorResponse(movieException.getHttpStatus().value(), movieException.getMessage(), LocalDateTime.now()), HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler
+    public ResponseEntity<ActorErrorResponse> handleException(ActorException actorException) {
+        log.error("Actor error has occurred ", actorException);
+        return  new ResponseEntity<>(new ActorErrorResponse(actorException.getHttpStatus().value(), actorException.getMessage(), LocalDateTime.now()), HttpStatus.NOT_FOUND);
+    }
 
     @ExceptionHandler
     public ResponseEntity<GlobalErrorResponse> handleException(Exception exception) {
