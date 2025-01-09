@@ -23,7 +23,7 @@ public class MovieServiceImpl implements MovieService{
 
     @Override
     public Movie findById(Long id) {
-        return movieRepository.findById(id).orElseThrow(new MovieException("Movie does not exist with id: " + id, HttpStatus.NOT_FOUND));
+        return movieRepository.findById(id).orElseThrow(() -> new MovieException("Movie does not exist with id: " + id, HttpStatus.NOT_FOUND));
     }
 
     @Override
