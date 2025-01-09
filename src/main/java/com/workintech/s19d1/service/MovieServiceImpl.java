@@ -2,6 +2,7 @@ package com.workintech.s19d1.service;
 
 import com.workintech.s19d1.entity.Movie;
 
+import com.workintech.s19d1.exceptions.MovieException;
 import com.workintech.s19d1.repository.MovieRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
