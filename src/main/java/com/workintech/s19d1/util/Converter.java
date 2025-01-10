@@ -21,4 +21,8 @@ public class Converter {
         }
         return actorResponses;
     }
+
+    public static ActorResponse actorResponseConvert(Actor actor) {
+        return new ActorResponse(actor.getId(), actor.getFirstName(), actor.getBirthDate(),actor.getMovies());
+    }
 }
