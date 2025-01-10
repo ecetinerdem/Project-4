@@ -4,6 +4,7 @@ import com.workintech.s19d1.dto.ActorRequest;
 import com.workintech.s19d1.dto.ActorResponse;
 import com.workintech.s19d1.entity.Actor;
 import com.workintech.s19d1.service.ActorService;
+import com.workintech.s19d1.util.Converter;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
