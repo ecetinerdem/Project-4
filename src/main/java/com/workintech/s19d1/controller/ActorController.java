@@ -22,6 +22,6 @@ public class ActorController {
     @GetMapping
     public List<ActorResponse> findAll(ActorRequest actorRequest) {
         List<Actor> actors = actorService.findAll();
-        return Converter.actorResponseConverter(actors);
+        return Converter.actorResponseConvert(actors);
     }
 }
